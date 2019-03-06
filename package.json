@@ -1,0 +1,19 @@
+{
+  "name": "data_modeling",
+  "version": "1.0.0",
+  "description": "Lab 08",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/erikmjohnson/data_modeling.git"
+  },
+  "author": "Erik M Johnson",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/erikmjohnson/data_modeling/issues"
+  },
+  "homepage": "https://github.com/erikmjohnson/data_modeling#readme"
+}
