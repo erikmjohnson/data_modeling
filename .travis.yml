@@ -3,4 +3,4 @@ node_js:
   - "9"
 
 script:
-  - jest server.test.js
+  - jest supergoose.js
