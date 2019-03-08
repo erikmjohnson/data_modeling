@@ -8,6 +8,11 @@ const schema = {
   description: {require:false}
 };
 
+schema.pre('save', function () {
+  this.name = this.name.toUpperCase();
+  next();
+});
+
 class Products {
 
   constructor() {

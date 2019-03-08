@@ -20,6 +20,7 @@
   "homepage": "https://github.com/erikmjohnson/data_modeling#readme",
   "dependencies": {
     "cors": "^2.8.5",
+    "dotenv": "^6.2.0",
     "ejs": "^2.6.1",
     "express": "^4.16.4",
     "jest": "^24.1.0",
