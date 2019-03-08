@@ -71,7 +71,6 @@ function postCategories(request,response,next) {
     .catch( next );
 }
 
-
 function putCategories(request,response,next) {
   // expects the record that was just updated in the database
   categories.put(request.params.id, request.body)
@@ -85,7 +84,6 @@ function deleteCategories(request,response,next) {
     .then( result => response.status(200).json(result) )
     .catch( next );
 }
-
 
 function getProducts(request,response,next) {
   // expects an array of objects back
@@ -114,7 +112,6 @@ function postProducts(request,response,next) {
     .catch( next );
 }
 
-
 function putProducts(request,response,next) {
   // expects the record that was just updated in the database
   products.put(request.params.id, request.body)
@@ -128,8 +125,6 @@ function deleteProducts(request,response,next) {
     .then( result => response.status(200).json(result) )
     .catch( next );
 }
-
-
 
 module.exports = {
   server: app,
