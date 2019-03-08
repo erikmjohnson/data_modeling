@@ -1,20 +1,19 @@
 'use strict';
 
-const schema = require('./');
+const schema = require('./categories-schema.js');
 
 class Categories {
 
-  constructor(schema) {
-    this.schema = schema;
+  constructor() {
   }
 
   get(_id) {
     let queryObject =  _id ? {_id} : {};
-    return this.schema.find(queryObject);
+    return schema.find(queryObject);
   }
   
   post(record) {
-    let newRecord = new this.schema(record);
+    let newRecord = new schema(record);
     return newRecord.save();
   }
 

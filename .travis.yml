@@ -4,3 +4,5 @@ node_js:
 
 script:
   - jest supergoose.js
+  - jest categories.test.js
+  - jest products.test.js
