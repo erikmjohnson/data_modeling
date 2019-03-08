@@ -2,13 +2,13 @@ LAB 09
 ==============================================
 
 ## LAB 09
-[![Build Status](https://travis-ci.com/erikmjohnson/lab-07-testing.svg?branch=master)
+[![Build Status](https://travis-ci.com/erikmjohnson/data_modeling.svg?branch=master)
 
 ### Author: Erik M Johnson
 
 ### Links and Resources
 * [repo](https://github.com/erikmjohnson/data_modeling)
-* [travis](https://travis-ci.com/erikmjohnson/lab-07-testing)
+* [travis](https://travis-ci.com/erikmjohnson/data_modeling)
 
 ### Modules
 #### server.js
