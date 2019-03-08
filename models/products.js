@@ -4,7 +4,8 @@ const uuid = require('uuid/v4');
 
 const schema = {
   id: {require: true},
-  name: {require: true}
+  name: {require: true},
+  description: {require:false}
 };
 
 class Products {
@@ -28,6 +29,7 @@ class Products {
   put(id, entry) {
     let record = this.sanitize(entry);
     if(record.id) {this.database = this.database.map(item => (item.id === id) ? record : item);}
+    return Promise.resolve(record);
   }
 
   delete(id) {
@@ -39,12 +41,16 @@ class Products {
     let valid = true;
     let record = {};
 
-    Object.keys(schema).forEach(data => {
-      if (schema[data].required) {
-        if(entry[data]) {record[data] = entry[data];}
-        else {valid = false;}}
-      else {record[data] = entry[data];}});
-    if(valid === false) {return record;}
+    Object.keys(schema).forEach( field => {
+      if ( schema[field].required ) {
+        if (entry[field]) {
+          record[field] = entry[field];
+        } else {
+          valid = false;
+        }} else {
+        record[field] = entry[field];
+      }});
+    return valid ? record : undefined;
   }
 
 }
