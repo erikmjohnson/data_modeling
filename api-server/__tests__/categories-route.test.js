@@ -15,9 +15,8 @@ describe('Testing routes', () => {
       .send({name: 'Cat Stuff'})
       .then( result => {
         // console.log(result.json);
-        result.get('/categories');
-        console.log(result.body);
-        expect(result.status).toBe(200);
+        console.log(result.body.name);
+        expect(result.body.name).toBe('Cat Stuff');
       }).catch( error => console.error(error));
   });
 });
