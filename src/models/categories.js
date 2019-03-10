@@ -5,15 +5,9 @@ const uuid = require('uuid/v4');
 const schema = {
   id: {require: true},
   name: {require: true},
-  description: {require:false}
 };
 
-schema.pre('save', function (next) {
-  this.name = this.name.toUpperCase();
-  next();
-});
-
-class Products {
+class Categories {
 
   constructor() {
     this.database = [];
@@ -23,7 +17,7 @@ class Products {
     let response = id ? this.database.filter(record => record.id === id) : this.database;
     return Promise.resolve(response);
   }
-  
+
   post(entry) {
     entry.id = uuid();
     let record = this.sanitize(entry);
@@ -48,16 +42,16 @@ class Products {
 
     Object.keys(schema).forEach( field => {
       if ( schema[field].required ) {
-        if (entry[field]) {
-          record[field] = entry[field];
-        } else {
-          valid = false;
-        }} else {
+      if (entry[field]) {
         record[field] = entry[field];
-      }});
+      } else {
+        valid = false;
+      }} else {
+      record[field] = entry[field];
+    }});
     return valid ? record : undefined;
   }
 
 }
 
-module.exports = Products;
+module.exports = Categories;
