@@ -10,7 +10,7 @@ afterAll(supergoose.stopDB);
 
 describe('Testing routes', () => {
   test('Post it!', () => {
-    return mockClient
+  return mockClient
       .post('/categories')
       .send({name: 'Cat Stuff'})
       .then(entry => {
@@ -36,7 +36,7 @@ describe('Testing routes', () => {
       .send({name: 'Bat Stuff'})
       .then(entry => {
         return mockClient
-          .get(`/categories/${entry.body._id}`)
+          .get(`/categories/${entry.body.id}`)
           .then(data => {
             expect(data.body.name).toEqual('Bat Stuff');
         }).catch( error => console.error(error));
@@ -48,7 +48,7 @@ describe('Testing routes', () => {
       .send({name: 'Cow Stuff'})
       .then(entry => {
         return mockClient
-          .put(`/categories/${entry.body._id}`)
+          .put(`/categories/${entry.body.id}`)
           .send({name: 'Bull Stuff'})
           .then(data => {
             expect(data.body.name).toEqual('Bull Stuff');
@@ -61,10 +61,10 @@ describe('Testing routes', () => {
       .send({name: 'platypus'})
       .then(entry => {
         return mockClient
-          .delete(`/categories/${entry.body._id}`)
+          .delete(`/categories/${entry.body.id}`)
           .then(() => {
             return mockClient
-              .get(`/categories/${entry.body._id}`)
+              .get(`/categories/${entry.body.id}`)
               .then(data => {
                 expect(data.body.name).toEqual()
               })

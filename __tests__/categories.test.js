@@ -1,4 +1,4 @@
-const Categories = require ('../categories.js');
+const Categories = require ('../src/models/categories.js');
 const categories= new Categories();
 
 const supergoose = require ('./supergoose.js');
@@ -32,7 +32,7 @@ describe('Testing categories', () => {
     let newObject = {name: 'Cat Stuff'};
     return categories.post(newObject)
       .then(entry => {
-        return categories.put(entry.id, { $set: {name: "Dog Stuff"} })
+        return categories.put(entry.id, {name: "Dog Stuff"})
           .then(category => {
               expect(category.name).toEqual('Dog Stuff');
           });

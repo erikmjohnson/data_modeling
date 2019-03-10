@@ -1,4 +1,4 @@
-const Products = require ('../products');
+const Products = require ('../src/models/products.js');
 const product = new Products();
 
 const supergoose = require ('./supergoose.js');
@@ -8,7 +8,7 @@ afterAll(supergoose.stopDB);
 
 describe('Testing products', () => {
   test('Can I get git g?t it?', () => {
-    let newObject = {name: 'Catsharp', description: 'Sharpens your dull cat'};
+    let newObject = {name: 'CATSHARP', description: 'Sharpens your dull cat'};
     return product.post(newObject)
       .then(entry => {
         return product.get(entry._id)
@@ -20,7 +20,7 @@ describe('Testing products', () => {
       });
   });
   test('Can I post it?', () => {
-    let newObject = {name: 'Catsharp', description: 'Sharpens your dull cat'};
+    let newObject = {name: 'CATSHARP', description: 'Sharpens your dull cat'};
     return product.post(newObject)
       .then(entry => {
         Object.keys(newObject).forEach(key => {
