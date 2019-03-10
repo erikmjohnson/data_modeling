@@ -8,7 +8,7 @@ const schema = {
   description: {require:false}
 };
 
-schema.pre('save', function () {
+schema.pre('save', function (next) {
   this.name = this.name.toUpperCase();
   next();
 });
