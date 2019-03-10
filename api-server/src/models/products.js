@@ -8,49 +8,32 @@ const schema = {
   description: {require:false}
 };
 
+schema.pre('save', function (next) {
+  this.name = this.name.toUpperCase();
+  next();
+});
+
 class Products {
 
   constructor() {
-    this.database = [];
   }
 
-  get(id) {
-    let response = id ? this.database.filter(record => record.id === id) : this.database;
-    return Promise.resolve(response);
-  }
-  
-  post(entry) {
-    entry.id = uuid();
-    let record = this.sanitize(entry);
-    if (record.id) {this.database.push(record);}
-    return Promise.resolve(record);
+  get(_id) {
+    let queryObject =  _id ? {_id} : {};
+    return schema.find(queryObject);
   }
 
-  put(id, entry) {
-    let record = this.sanitize(entry);
-    if(record.id) {this.database = this.database.map(item => (item.id === id) ? record : item);}
-    return Promise.resolve(record);
+  post(record) {
+    let newRecord = new schema(record);
+    return newRecord.save();
   }
 
-  delete(id) {
-    this.database = this.database.filter(record => record.id !== id);
-    return Promise.resolve();
+  put(_id, record) {
+    return schema.findByIdAndUpdate(_id,record, {new: true});
   }
 
-  sanitize(entry) {
-    let valid = true;
-    let record = {};
-
-    Object.keys(schema).forEach( field => {
-      if ( schema[field].required ) {
-        if (entry[field]) {
-          record[field] = entry[field];
-        } else {
-          valid = false;
-        }} else {
-        record[field] = entry[field];
-      }});
-    return valid ? record : undefined;
+  delete(_id) {
+    return schema.findByIdAndDelete(_id);
   }
 
 }
