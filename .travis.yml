@@ -6,3 +6,5 @@ script:
   - jest supergoose.js
   - jest categories.test.js
   - jest products.test.js
+  - jest products-route.test.js
+  - jest categories-route.test.js

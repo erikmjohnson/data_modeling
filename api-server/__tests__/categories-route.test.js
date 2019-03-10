@@ -10,7 +10,7 @@ afterAll(supergoose.stopDB);
 
 describe('Testing routes', () => {
   test('Post it!', () => {
-    return mockClient
+  return mockClient
       .post('/categories')
       .send({name: 'Cat Stuff'})
       .then(entry => {
