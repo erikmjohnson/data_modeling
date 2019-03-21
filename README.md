@@ -1,22 +1,31 @@
-LAB 09
+LAB 08
 ==============================================
 
-## LAB 09
-[![Build Status](https://travis-ci.com/erikmjohnson/data_modeling.svg?branch=master)
+Learning MongoDB schema and how route commands are functioning by
+making them in long form methods. 
+
+## LAB 08
+![Build Status](https://travis-ci.com/erikmjohnson/data_modeling.svg?branch=master)
 
 ### Author: Erik M Johnson
 
 ### Links and Resources
-* [repo](https://github.com/erikmjohnson/data_modeling)
-* [travis](https://travis-ci.com/erikmjohnson/data_modeling)
+* [Repo](https://github.com/erikmjohnson/data_modeling)
+* [Travis](https://travis-ci.com/erikmjohnson/data_modeling)
 
 ### Modules
-#### server.js
+#### app.js
 * server -> has all server paths
 * start -> starts server
+___
+#### categories.js
+* class Categories -> has schema and methods
+
+___
+#### products.js
+*class Products -> has schema and methods
 
 #### Tests
 
-* To run tests use `npm test` command.
+* To run tests, use `npm test` command.
 
-#### UML
